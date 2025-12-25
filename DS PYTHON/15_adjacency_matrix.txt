@@ -1,0 +1,32 @@
+n = int(input("Enter number of vertices: "))
+
+print("Enter adjacency matrix:")
+matrix = []
+
+for i in range(n):
+    row = list(map(int, input().split()))
+    matrix.append(row)
+
+adj_list = {i: [] for i in range(n)}
+
+for i in range(n):
+    for j in range(n):
+        if matrix[i][j] == 1:
+            adj_list[i].append(j)
+
+print("Adjacency List:")
+for key in adj_list:
+    print(key, ":", adj_list[key])
+
+Output:
+Enter number of vertices: 4
+Enter adjacency matrix:
+1 0 0 1
+0 1 1 0
+1 0 1 0
+0 1 0 1
+Adjacency List:
+0 : [0, 3]
+1 : [1, 2]
+2 : [0, 2]
+3 : [1, 3]

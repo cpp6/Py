@@ -1,0 +1,53 @@
+from pymongo import MongoClient
+
+client = MongoClient("mongodb://localhost:27017/")
+db = client["college"]
+collection = db["students"]
+
+student = {
+    "roll_no": 111,
+    "name": "Sanika",
+    "course": "MCA",
+    "year": 1
+}
+
+collection.insert_one(student)
+print("Record Inserted")
+
+print("\nAll Records:")
+for s in collection.find():
+    print(s)
+
+collection.update_one(
+    {"roll_no": 111},
+    {"$set": {"year": 2}}
+)
+print("\nRecord Updated")
+
+print("\nRecord After Update:")
+for s in collection.find({"roll_no": 1}):
+    print(s)
+
+collection.delete_one({"roll_no": 1})
+print("\nRecord Deleted")
+
+print("\nRecords After Deletion:")
+for s in collection.find():
+    print(s)
+
+
+Output
+
+Record Inserted
+
+All Records:
+{'_id': ObjectId('65a...'), 'roll_no': 111, 'name': 'Sanika', 'course': 'MCA', 'year': 1}
+
+Record Updated
+
+Record After Update:
+{'_id': ObjectId('65a...'), 'roll_no': 111, 'name': 'Sanika', 'course': 'MCA', 'year': 2}
+
+Record Deleted
+
+Records After Deletion:

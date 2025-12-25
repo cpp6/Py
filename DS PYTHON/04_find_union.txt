@@ -1,0 +1,203 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def Insert_End(self, data):
+        temp = Node(data)
+        if self.head is None:
+            self.head = temp
+        else:
+            q = self.head
+            while q.next:
+                q = q.next
+            q.next = temp
+
+    def Display(self):
+        q = self.head
+        while q:
+            print(q.data, end="->")
+            q = q.next
+        print("None")
+
+    def union(self, other):
+        s = set()
+        q = self.head
+        while q:
+            s.add(q.data)
+            q = q.next
+        q = other.head
+        while q:
+            s.add(q.data)
+            q = q.next
+
+        u = LinkedList()
+        for i in s:
+            u.Insert_End(i)
+        return u
+
+l1 = LinkedList()
+l2 = LinkedList()
+
+while True:
+    print("1.Insert List1")
+    print("2.Insert List2")
+    print("3.Display List1")
+    print("4.Display List2")
+    print("5.Union")
+    print("0.Exit")
+
+    ch = int(input("Enter Your Choice: ))
+    if ch == 1:
+        l1.Insert_End(int(input("Enter the Element to insert at end of List 1:)))
+    elif ch == 2:
+        l2.Insert_End(int(input("Enter the Element to insert at end of List 2:)))
+    elif ch == 3:
+        print("List 1:") 
+        l1.Display()
+    elif ch == 4:
+        print("List 2:") 
+        l2.Display()
+    elif ch == 5:
+        print("Union of List 1 and List 2:") 
+        l1.union(l2).Display()
+    elif ch == 0:
+        exit(0)
+    else:
+        print("Invalid choice. Please try again.")
+
+
+Output:
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 1
+Enter the Element to insert at end of List 1: 11
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 1
+Enter the Element to insert at end of List 1: 55
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+ 
+0.	Exit
+Enter your choice: 1
+Enter the Element to insert at end of List 1: 2
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 1
+Enter the Element to insert at end of List 1: 5
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 1
+Enter the Element to insert at end of List 1: 77
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 2
+Enter the Element to insert at end of List 2: 2
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 2
+Enter the Element to insert at end of List 2: 5
+ 
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 2
+Enter the Element to insert at end of List 2: 1
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 2
+Enter the Element to insert at end of List 2: 85
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 2
+Enter the Element to insert at end of List 2: 66
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 3 List 1:
+11->55->2->5->77->None
+-----Choices are:----
+1.	Insert into List 1
+ 
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 4 List 2:
+2->5->1->85->66->None
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice: 5 Union of List 1 and List 2:
+1->2->66->5->11->77->85->55->None
+-----Choices are:----
+1.	Insert into List 1
+2.	Insert into List 2
+3.	Display List 1
+4.	Display List 2
+5.	Union of List 1 and List 2
+0.	Exit
+Enter your choice:
+ 

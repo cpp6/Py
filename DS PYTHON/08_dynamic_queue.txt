@@ -1,0 +1,129 @@
+queue = []
+front = -1
+rear = -1
+
+
+def enqueue():
+    global front, rear
+    element = input("Enter element to add: ")
+    queue.append(element)
+    if front == -1:
+        front = 0
+    rear += 1
+    print(f"{element} added to the queue at position {rear}.")
+
+
+def dequeue():
+    global front, rear
+    if front == -1 or front > rear:
+        print("Queue Underflow! Queue is empty.")
+    else:
+        element = queue[front]
+        print(f"Removed element: {element}")
+        front += 1
+        if front > rear:
+            front = rear = -1
+            queue.clear()
+
+
+def peek():
+    if front == -1:
+        print("Queue is empty!")
+    else:
+        print(f"Front element is: {queue[front]}")
+
+
+def display():
+    if front == -1:
+        print("Queue is empty!")
+    else:
+        print(f"Front index = {front}, Rear index = {rear}")
+        print("Current Queue:", queue[front:rear+1])
+
+
+while True:
+    print("\n--- Dynamic Queue (with Front & Rear) ---")
+    print("1. Enqueue (Add)")
+    print("2. Dequeue (Remove)")
+    print("3. Peek (Front Element)")
+    print("4. Display Queue")
+    print("5. Exit")
+
+    choice = input("Enter your choice (1-5): ")
+
+    if choice == '1':
+        enqueue()
+    elif choice == '2':
+        dequeue()
+    elif choice == '3':
+        peek()
+    elif choice == '4':
+        display()
+    elif choice == '5':
+        print("Exiting... Thank you!")
+        break
+    else:
+        print("Invalid choice! Please enter between 1 to 5.")
+
+
+Output:
+--- Dynamic Queue (with Front & Rear) ---
+1.	Enqueue (Add)
+2.	Dequeue (Remove)
+3.	Peek (Front Element)
+4.	Display Queue
+5.	Exit
+ 
+Enter your choice (1-5): 1 Enter element to add: 1
+1 added to the queue at position 0.
+
+--- Dynamic Queue (with Front & Rear) ---
+1.	Enqueue (Add)
+2.	Dequeue (Remove)
+3.	Peek (Front Element)
+4.	Display Queue
+5.	Exit
+Enter your choice (1-5): 1 Enter element to add: 2
+2 added to the queue at position 1.
+--- Dynamic Queue (with Front & Rear) ---
+1.	Enqueue (Add)
+2.	Dequeue (Remove)
+3.	Peek (Front Element)
+4.	Display Queue
+5.	Exit
+Enter your choice (1-5): 1 Enter element to add: 3
+3 added to the queue at position 2.
+
+--- Dynamic Queue (with Front & Rear) ---
+1.	Enqueue (Add)
+2.	Dequeue (Remove)
+3.	Peek (Front Element)
+4.	Display Queue
+5.	Exit
+Enter your choice (1-5): 4 Front index = 0, Rear index = 2 Current Queue: ['1', '2', '3']
+
+--- Dynamic Queue (with Front & Rear) ---
+1.	Enqueue (Add)
+2.	Dequeue (Remove)
+3.	Peek (Front Element)
+4.	Display Queue
+ 
+5.	Exit
+Enter your choice (1-5): 2
+Removed element: 1
+
+--- Dynamic Queue (with Front & Rear) ---
+1.	Enqueue (Add)
+2.	Dequeue (Remove)
+3.	Peek (Front Element)
+4.	Display Queue
+5.	Exit
+Enter your choice (1-5): 4 Front index = 1, Rear index = 2 Current Queue: ['2', '3']
+
+--- Dynamic Queue (with Front & Rear) ---
+1.	Enqueue (Add)
+2.	Dequeue (Remove)
+3.	Peek (Front Element)
+4.	Display Queue
+5.	Exit
+Enter your choice (1-5): 3 Front element 

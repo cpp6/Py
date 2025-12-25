@@ -1,0 +1,40 @@
+from pymongo import MongoClient
+
+client = MongoClient("mongodb://localhost:27017/")
+db = client["LibraryDB"]
+collection = db["Library"]
+
+book_title = input("Enter Book Title: ")
+book_author = input("Enter Book Author: ")
+book_pages = int(input("Enter Number of Pages: "))
+book_price = float(input("Enter Book Price: "))
+
+book = {
+    "BookTitle": book_title,
+    "BookAuthor": book_author,
+    "BookPages": book_pages,
+    "BookPrice": book_price
+}
+
+collection.insert_one(book)
+
+print("\nBook record inserted successfully")
+
+print("\nLibrary Collection Records:")
+for b in collection.find():
+    print(b)
+
+
+Output:
+
+Enter Book Title: Python Programming
+Enter Book Author: Guido van Rossum
+Enter Number of Pages: 450
+Enter Book Price: 599.50
+
+Book record inserted successfully
+
+Library Collection Records:
+{'_id': ObjectId('65a...'), 'BookTitle': 'Python Programming',
+ 'BookAuthor': 'Guido van Rossum', 'BookPages': 450, 'BookPrice': 599.5}
+

@@ -1,0 +1,42 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, data):
+        if not self.head:
+            self.head = Node(data)
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = Node(data)
+
+    def display(self):
+        current = self.head
+        while current:
+            print(current.data, end="→" if current.next else "\n")
+            current = current.next
+
+
+# Get user input and create linked list
+num = input("Enter a number: ")
+
+ll = LinkedList()
+for digit in num:
+    if digit.isdigit():
+        ll.append(int(digit))
+
+print("Linked List:")
+ll.display()
+
+
+Output:
+Enter a number: 1234
+Linked List:
+1→2→3→4

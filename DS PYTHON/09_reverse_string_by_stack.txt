@@ -1,0 +1,36 @@
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, char):
+        self.stack.append(char)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+        return None
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+
+def reverse_string(s):
+    stack = Stack()
+    for char in s:
+        stack.push(char)
+
+    reversed_s = ""
+    while not stack.is_empty():
+        reversed_s += stack.pop()
+    return reversed_s
+
+
+string = input("Enter a string: ")
+print(f"Original String: {string}")
+print(f"Reversed String: {reverse_string(string)}")
+
+
+Output:
+Enter a string: aditya 
+Original String: aditya 
+Reversed String: aytida

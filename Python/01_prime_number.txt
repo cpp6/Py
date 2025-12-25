@@ -1,0 +1,29 @@
+def is_prime(n):
+    """Checks if a number n is a prime number"""
+    if n <= 1:
+        return False
+    # Check for factors from 2 up to the square root of n
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
+# Program to print prime numbers between 1 and 100
+def print_primes_up_to_100():
+    print("Prime numbers between 1 and 100 are:")
+    # Iterate through numbers from 2 to 100 (inclusive)
+    for number in range(2, 101):
+        if is_prime(number):
+            print(number, end=" ")
+    # Add a newline at the end for clean output
+    print()
+
+
+if __name__ == "__main__":
+    print_primes_up_to_100()
+
+Output:
+
+Prime numbers between 1 and 100 are:
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97

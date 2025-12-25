@@ -1,0 +1,73 @@
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, root, key):
+        if root is None:
+            return Node(key)
+        if key < root.key:
+            root.left = self.insert(root.left, key)
+        else:
+            root.right = self.insert(root.right, key)
+        return root
+
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(root.key, end=" ")
+            self.inorder(root.right)
+
+    def printLeafNodes(self, root):
+        if root:
+            if root.left is None and root.right is None:
+                print(root.key, end=" ")
+            self.printLeafNodes(root.left)
+            self.printLeafNodes(root.right)
+
+    def mirror(self, root):
+        if root:
+            root.left, root.right = root.right, root.left
+            self.mirror(root.left)
+            self.mirror(root.right)
+        return root
+
+
+# MAIN PROGRAM
+tree = BST()
+root = None
+
+print("Enter values to insert into BST (space separated):")
+values = list(map(int, input().split()))
+
+for v in values:
+    root = tree.insert(root, v)
+
+print("\nIn-order Traversal of Original Tree:")
+tree.inorder(root)
+
+print("\n\nLeaf Nodes of the Tree:")
+tree.printLeafNodes(root)
+
+tree.mirror(root)
+
+print("\n\nIn-order Traversal of Mirrored Tree:")
+tree.inorder(root)
+print()
+
+Output:
+Enter values to insert into BST (space separated): 
+65 85 96 47 52 31 20
+In-order Traversal of Original Tree: 
+20 31 47 52 65 85 96
+
+Leaf Nodes of the Tree:
+20 52 96
+In-order Traversal of Mirrored Tree: 
+96 85 65 52 47 31 20

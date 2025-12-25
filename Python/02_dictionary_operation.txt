@@ -1,0 +1,37 @@
+student = {
+    "name": "Sanika",
+    "roll-no": 101,
+    "course": "MCA",
+    "marks": 88,
+    "grade": "A"
+}
+
+print("all key in dictionary:")
+print(student.keys())
+
+student["college"] = "XYZ University"
+print("\n after adding new key-value pair:")
+print(student)
+
+del student["marks"]
+print("\n After deleting 'marks'key:")
+print(student)
+
+student["grade"] = "a+"
+print("\n After modifying'grade'value:")
+print(student)
+
+
+Output:
+
+all key in dictionary:
+dict_keys(['name', 'roll-no', 'course', 'marks', 'grade'])
+
+ after adding new key-value pair:
+{'name': 'Sanika', 'roll-no': 101, 'course': 'MCA', 'marks': 88, 'grade': 'A', 'college': 'XYZ University'}
+
+ After deleting 'marks'key:
+{'name': 'Sanika', 'roll-no': 101, 'course': 'MCA', 'grade': 'A', 'college': 'XYZ University'}
+
+ After modifying'grade'value:
+{'name': 'Sanika', 'roll-no': 101, 'course': 'MCA', 'grade': 'a+', 'college': 'XYZ University'}

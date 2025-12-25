@@ -1,0 +1,60 @@
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, root, key):
+        if root is None:
+            return Node(key)
+        if key < root.key:
+            root.left = self.insert(root.left, key)
+        else:
+            root.right = self.insert(root.right, key)
+        return root
+
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(root.key, end=" ")
+            self.inorder(root.right)
+
+    def mirror(self, root):
+        if root:
+            root.left, root.right = root.right, root.left
+            self.mirror(root.left)
+            self.mirror(root.right)
+        return root
+
+
+# MAIN PROGRAM
+tree = BST()
+root = None
+
+print("Enter values to insert into BST (space-separated):")
+elements = list(map(int, input().split()))
+
+for val in elements:
+    root = tree.insert(root, val)
+
+print("\nIn-order Traversal of Original BST:")
+tree.inorder(root)
+
+tree.mirror(root)
+
+print("\n\nIn-order Traversal of Mirror BST:")
+tree.inorder(root)
+print()
+
+
+Output:
+Enter values to insert into BST (space-separated): 
+45 65 87 98 28 52 63
+In-order Traversal of Original BST: 28 45 52 63 65 87 98
+ 
+In-order Traversal of Mirror BST: 98 87 65 63 52 45 2

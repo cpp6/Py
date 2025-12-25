@@ -1,0 +1,18 @@
+import math
+import random
+import datetime
+
+num = 16
+print("Square root of", num, ":", math.sqrt(num))
+print("Power (2^3):", math.pow(2, 3))
+print("Random number between 1 and 10:", random.randint(1, 10))
+
+today = datetime.date.today()
+print("Today's date:", today)
+
+Output:
+
+Square root of 16 : 4.0
+Power (2^3): 8.0
+Random number between 1 and 10: 9
+Today's date: 2025-12-20

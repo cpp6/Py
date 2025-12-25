@@ -1,0 +1,30 @@
+def is_balanced(expr):
+    stack = []
+    opening = "({["
+    closing = ")}]"
+    pair = {')': '(', '}': '{', ']': '['}
+
+    for ch in expr:
+        if ch in opening:
+            stack.append(ch)
+        elif ch in closing:
+            if not stack or stack.pop() != pair[ch]:
+                return False
+    return len(stack) == 0
+
+
+exp = input("Enter expression: ")
+
+if is_balanced(exp):
+    print("Parentheses are Correct / Balanced")
+else:
+    print("Parentheses are NOT Correct / NOT Balanced")
+
+
+Output 1:
+Enter expression: (a+b)*c-d 
+Parentheses are Correct / Balanced
+
+Output 2:
+Enter expression: (a+b}
+Parentheses are NOT Correct / NOT Balanced

@@ -1,0 +1,56 @@
+# Node class
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+
+
+# Binary Search Tree class
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, root, key):
+        if root is None:
+            return Node(key)
+        if key < root.key:
+            root.left = self.insert(root.left, key)
+        else:
+            root.right = self.insert(root.right, key)
+        return root
+
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(root.key, end=" ")
+            self.inorder(root.right)
+
+    def postorder(self, root):
+        if root:
+            self.postorder(root.left)
+            self.postorder(root.right)
+            print(root.key, end=" ")
+
+
+# -------- Main Program --------
+tree = BST()
+root = None
+
+print("Enter elements to insert into BST (space-separated):")
+elements = list(map(int, input().split()))
+
+for elem in elements:
+    root = tree.insert(root, elem)
+
+print("\nIn-order Traversal:")
+tree.inorder(root)
+
+print("\nPost-order Traversal:")
+tree.postorder(root)
+
+Output:
+Enter elements to insert into BST (space-separated): 
+25 75 86 94 52 36 85
+In-order Traversal: 25 36 52 75 85 86 94
+Post-order Traversal: 36 52 85 94 86 75 25

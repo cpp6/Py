@@ -1,0 +1,61 @@
+from collections import defaultdict, deque
+
+class Graph:
+    def __init__(self):
+        self.graph = defaultdict(list)
+
+    def add_edge(self, u, v):
+        self.graph[u].append(v)
+
+    def dfs(self, start, visited=None):
+        if visited is None:
+            visited = set()
+        visited.add(start)
+        print(start, end=" ")
+        for node in self.graph[start]:
+            if node not in visited:
+                self.dfs(node, visited)
+
+    def bfs(self, start):
+        visited = set()
+        queue = deque([start])
+        visited.add(start)
+
+        while queue:
+            node = queue.popleft()
+            print(node, end=" ")
+            for adj in self.graph[node]:
+                if adj not in visited:
+                    visited.add(adj)
+                    queue.append(adj)
+
+
+g = Graph()
+n = int(input("Enter number of edges: "))
+
+print("Enter edges (u v):")
+for _ in range(n):
+    u, v = input().split()
+    g.add_edge(u, v)
+
+start = input("Enter starting vertex: ")
+
+print("DFS:", end=" ")
+g.dfs(start)
+print()
+
+print("BFS:", end=" ")
+g.bfs(start)
+print()
+
+Output:
+Enter number of edges: 5 
+Enter edges (u v):
+A B
+A C
+B D
+C E
+D F
+Enter starting vertex: A 
+DFS: A B D F C E 
+BFS: A B C D E F

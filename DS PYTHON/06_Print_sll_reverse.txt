@@ -1,0 +1,128 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_end(self, data):
+        temp = Node(data)
+        if self.head is None:
+            self.head = temp
+        else:
+            q = self.head
+            while q.next:
+                q = q.next
+            q.next = temp
+
+    def reverse(self):
+        prev = None
+        q = self.head
+        while q:
+            nxt = q.next
+            q.next = prev
+            prev = q
+            q = nxt
+        self.head = prev
+
+    def display(self):
+        q = self.head
+        if q is None:
+            print("List is empty")
+            return
+        while q is not None:
+            print(q.data, end="->")
+            q = q.next
+        print("None")
+
+
+ll = LinkedList()
+
+while True:
+    print("\n--- Singly Linked List Menu ---")
+    print("1. Insert at End")
+    print("2. Reverse List")
+    print("3. Display List")
+    print("0. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        data = int(input("Enter value to insert at end: "))
+        ll.insert_end(data)
+
+    elif choice == 2:
+        ll.reverse()
+        print("List reversed.")
+
+    elif choice == 3:
+        ll.display()
+
+    elif choice == 0:
+        print("Exiting program.")
+        break
+
+    else:
+        print("Invalid choice. Please try again.")
+
+Output:
+--- Singly Linked List Menu ---
+1.	Insert at End
+2.	Reverse List
+3.	Display List
+0.	Exit
+Enter your choice: 1
+Enter value to insert at end: 7
+
+--- Singly Linked List Menu ---
+1.	Insert at End
+2.	Reverse List
+3.	Display List
+0.	Exit
+Enter your choice: 1
+Enter value to insert at end: 2
+
+--- Singly Linked List Menu ---
+1.	Insert at End
+2.	Reverse List
+3.	Display List
+0.	Exit
+Enter your choice: 1
+Enter value to insert at end: 9
+
+--- Singly Linked List Menu ---
+1.	Insert at End
+2.	Reverse List
+3.	Display List
+0.	Exit
+Enter your choice: 1
+Enter value to insert at end: 11
+
+--- Singly Linked List Menu ---
+1.	Insert at End
+2.	Reverse List
+3.	Display List
+0.	Exit
+ 
+Enter your choice: 3 7->2->9->11->None
+
+--- Singly Linked List Menu ---
+1.	Insert at End
+2.	Reverse List
+3.	Display List
+0.	Exit
+Enter your choice: 2 List reversed.
+
+--- Singly Linked List Menu ---
+1.	Insert at End
+2.	Reverse List
+3.	Display List
+0.	Exit
+Enter your choice: 3 11->9->2->7->None
+--- Singly Linked List Menu ---
+1.	Insert at End
+2.	Reverse List
+3.	Display 

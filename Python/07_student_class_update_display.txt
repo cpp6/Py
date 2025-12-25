@@ -1,0 +1,36 @@
+class Student:
+    def __init__(self, first_name, last_name, qualification):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.qualification = qualification
+
+    def update_qualification(self, new_qualification):
+        self.qualification = new_qualification
+        print("Qualification updated successfully!")
+
+    def display_details(self):
+        print("--- Student Details ---")
+        print(f"First Name: {self.first_name}")
+        print(f"Last Name: {self.last_name}")
+        print(f"Qualification: {self.qualification}")
+        print("-----------------------")
+
+
+def main():
+    student1 = Student("Sanika", "Bhagat", "MCA")
+    student1.update_qualification("MCA")
+    student1.display_details()
+
+
+if __name__ == "__main__":
+    main()
+
+
+Output:
+
+Qualification updated successfully!
+--- Student Details ---
+First Name: Sanika
+Last Name: Bhagat
+Qualification: MCA
+-----------------------

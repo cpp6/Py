@@ -1,0 +1,30 @@
+def binary_search(arr, x):
+    low, high = 0, len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == x:
+            return mid
+        elif x < arr[mid]:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return -1
+
+
+arr = list(map(int, input("Enter sorted elements: ").split()))
+x = int(input("Enter element to search: "))
+
+pos = binary_search(arr, x)
+if pos != -1:
+    print("Element found at index", pos)
+else:
+    print("Element not found")
+
+Output:
+Enter sorted elements: 70 25 65 48 96 35 20 
+Enter element to search: 25
+Element found at index 1
+Enter sorted elements: 70 25 65 48 96 35 20 
+Enter element to search: 90
+Element not found

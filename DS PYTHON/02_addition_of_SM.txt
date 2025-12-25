@@ -1,0 +1,45 @@
+r = int(input("Enter the number of rows: "))
+c = int(input("Enter the number of columns: "))
+m = []
+
+print("Enter the first matrix:")
+for i in range(r):
+    l = []
+    for j in range(c):
+        num = int(input("Enter the element: "))
+        l.append(num)
+    m.append(l)
+
+print("Display the matrix:")
+for i in m:
+    print(i)
+
+r1 = []
+c1 = []
+val = []
+s = 0
+
+for i in range(r):
+    for j in range(c):
+        if m[i][j] != 0:
+            r1.append(i)
+            c1.append(j)
+            val.append(m[i][j])
+            s += m[i][j]
+
+print("Sparse matrix:")
+print("Rows=", r1)
+print("columns=", c1)
+print("value=", val)
+print("Addition=", s)
+
+
+Output:
+Enter the number of rows:3 Enter the number of columns:3 Enter the first matrix:
+Enter the element:1 Enter the element:0 Enter the element:0 Enter the element:4 Enter the element:8 Enter the element:0 Enter the element:0 Enter the element:0 Enter the element:6 Display the matrix: [1, 0, 0]
+[4, 8, 0]
+[0, 0, 6]
+Saprse matrix: Rows= [0, 1, 1, 2]
+columns= [0, 0, 1, 2]
+value= [1, 4, 8, 6]
+Addition= 19

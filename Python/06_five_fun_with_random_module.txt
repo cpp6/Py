@@ -1,0 +1,91 @@
+import random
+
+
+def demonstrate_random_functions():
+    print("--- Demonstration of Python random module functions ---")
+
+    # 1. random.random(): Generates a random float between 0.0 and 1.0
+    float_zero_one = random.random()
+    print(f"\n1. random.random(): Random float between 0.0 and 1.0: {float_zero_one}")
+
+    # 2. random.randint(a, b): Random integer between a and b (inclusive)
+    dice_roll = random.randint(1, 6)
+    print(f"\n2. random.randint(): Simulating a dice roll (1 to 6): {dice_roll}")
+
+    # 3. random.uniform(a, b): Random float between a and b
+    float_range = random.uniform(10.5, 20.5)
+    print(f"\n3. random.uniform(): Random float between 10.5 and 20.5: {float_range:.2f}")
+
+    # 4. random.choice(seq): Random element from a sequence
+    colors = ["red", "blue", "green", "yellow", "purple"]
+    random_color = random.choice(colors)
+    print(f"\n4. random.choice(): Random element from a list {colors}: {random_color}")
+
+    # 5. random.shuffle(x): Shuffles a list in place
+    cards = ["Ace", "King", "Queen", "Jack", "10"]
+    print(f"\n5. random.shuffle(): Original list of cards: {cards}")
+    random.shuffle(cards)
+    print(f"   Shuffled list (in-place modification): {cards}")
+
+
+if __name__ == "__main__":
+    demonstrate_random_functions()
+
+if __name__ == "__main__":
+    demonstrate_random_functions()
+
+
+   Q 6 .	
+Write a python program for to to demonstrate the use of any five function from the random module
+…..
+
+import random
+
+def demonstrate_random_functions():
+    print("--- Demonstration of Python random module functions ---")
+
+    # 1. random.random(): Generates a random float between 0.0 and 1.0
+    float_zero_one = random.random()
+    print(f"\n1. random.random(): Random float between 0.0 and 1.0: {float_zero_one}")
+
+    # 2. random.randint(a, b): Random integer between a and b (inclusive)
+    dice_roll = random.randint(1, 6)
+    print(f"\n2. random.randint(): Simulating a dice roll (1 to 6): {dice_roll}")
+
+    # 3. random.uniform(a, b): Random float between a and b
+    float_range = random.uniform(10.5, 20.5)
+    print(f"\n3. random.uniform(): Random float between 10.5 and 20.5: {float_range:.2f}")
+
+    # 4. random.choice(seq): Random element from a sequence
+    colors = ["red", "blue", "green", "yellow", "purple"]
+    random_color = random.choice(colors)
+    print(f"\n4. random.choice(): Random element from a list {colors}: {random_color}")
+
+    # 5. random.shuffle(x): Shuffles a list in place
+    cards = ["Ace", "King", "Queen", "Jack", "10"]
+    print(f"\n5. random.shuffle(): Original list of cards: {cards}")
+    random.shuffle(cards)
+    print(f"   Shuffled list (in-place modification): {cards}")
+
+if __name__ == "__main__":
+    demonstrate_random_functions()
+
+if __name__ == "__main__":
+    demonstrate_random_functions()
+
+
+Output: 
+
+--- Demonstration of Python random module functions ---
+
+1. random.random(): Random float between 0.0 and 1.0: 0.9130317744661438
+
+2. random.randint(): Simulating a dice roll (1 to 6): 3
+
+3. random.uniform(): Random float between 10.5 and 20.5: 19.39
+
+4. random.choice(): Random element from a list ['red', 'blue', 'green', 'yellow', 'purple']: red
+
+5. random.shuffle(): Original list of cards: ['Ace', 'King', 'Queen', 'Jack', '10']
+   Shuffled list (in-place modification): ['Ace', 'Jack', 'Queen', '10', 'King']
+

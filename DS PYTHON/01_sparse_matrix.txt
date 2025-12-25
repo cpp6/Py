@@ -1,0 +1,52 @@
+Write a python program for to implement the sparse matrix.
+
+r=int(input("Enter the number of rows:"))
+c=int(input("Enter the number of columns:"))
+m=[]
+print("Enter the first matrix:")
+for i in range(r):
+    l=[]
+    for j in range(c):
+        num=int(input("Enter the element:"))
+        l.append(num)
+    m.append(l)
+
+print("Display the matrix:")
+for i in m:
+    print(i)
+
+r1=[]
+c1=[]
+val=[]
+for i in range(r):
+    for j in range(c):
+        if m[i][j]!=0:
+            r1.append(i)
+            c1.append(j)
+            val.append(m[i][j])
+
+print("Sparse matrix:")
+print("Rows=",r1)
+print("Columns=",c1)
+print("Values=",val)
+
+
+Output:
+Enter the number of rows:3 
+Enter the number of columns:3 
+Enter the first matrix:
+Enter the element:10 
+Enter the element:0 
+Enter the element:0 
+Enter the element:0 
+Enter the element:20 
+Enter the element:0 
+Enter the element:0 
+Enter the element:0 
+Enter the element:0 
+Display the matrix: [10, 0, 0]
+[0, 20, 0]
+[0, 0, 0]
+Saprse matrix: Rows= [0, 1]
+columns= [0, 1]
+value= [10, 20]
